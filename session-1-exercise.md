@@ -50,9 +50,28 @@ After the discussion with friends and reading some reference, the answer for the
 
 ## [zkmessage.xyz](https://zkmessage.xyz)
 
-### Explain why you need to generate and save a “secret” value.
+### Question 1
+Explain why you need to generate and save a “secret” value.
 
+### Answer 1
+The "secret" value generation is actually creating a pair of public key and private key. To create an account in zkmessage, we have to submit our public key to the server. To verify our twitter account, we publish our public key in the tweet. The private key is the only thing that can be used to prove the ownership of the public key (and also the account).
 
-### Write out a plain-English explanation of what statement is being proven in ZK.
+### Question 2
+Write out a plain-English explanation of what statement is being proven in ZK.
 
-### Log into the same zkmessage account, from a different browser or computer. Explain why zkmessage can’t just use a simple “username/password” system like most social apps.
+### Answer 2
+When creating a thread or message, the users have to prove that: 
+
+a. verify the membership - prove the user is part of the group by checking the hash of secret key is equal to one of the public hashes in the group
+
+b. verify the same user created the message and the proof 
+
+### Question 3
+Log into the same zkmessage account, from a different browser or computer. Explain why zkmessage can’t just use a simple “username/password” system like most social apps.
+
+### Answer 3
+In zkmessage, secret key is similar to the password. Instead of determining a username, the "username" in zkmessage is derived from the secret key. 
+
+When generating the zk proof, the secret key is hashed and submitted with other information like hashed message and the group. 
+
+Imagine zkmessage uses simple “username/password” system, if some users are using the same password, the hashed password will be the same and the user may potentially forge the other identity. 

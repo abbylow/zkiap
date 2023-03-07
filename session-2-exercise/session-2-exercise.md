@@ -59,6 +59,11 @@ Specification: If in is negative according to our convention, out should be 1. O
 
 Understanding check: Why can’t we just use LessThan or one of the comparator circuits from the previous exercise?
 
+A: According to [Relational operators](https://docs.circom.io/circom-language/basic-operators/#relational-operators), 
+
+The defination of Relational operator < constrains val(z) to be not greater than p/2. Thus, if we compare x (less than p/2) with y (larger than p/2) when use Less than, what Circom does is comparing x with p - y, then maybe we will get the wrong answer.
+
+
 # LessThan
 Parameters: none
 

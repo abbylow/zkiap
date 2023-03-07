@@ -1,8 +1,5 @@
 pragma circom 2.1.2;
 
-include "circomlib/poseidon.circom";
-// include "https://github.com/0xPARC/circom-secp256k1/blob/master/circuits/bigint.circom";
-
 template IsZero () {
     signal input in;
     signal output out;

@@ -63,6 +63,7 @@ A: According to [Relational operators](https://docs.circom.io/circom-language/ba
 
 The defination of Relational operator < constrains val(z) to be not greater than p/2. Thus, if we compare x (less than p/2) with y (larger than p/2) when use Less than, what Circom does is comparing x with p - y, then maybe we will get the wrong answer.
 
+Note: You might notice that if you input "-1" to my `IsNegative` solution, the output is wrong. This issue is caused by the conversion between the input JSON to circom input, the -1 was converted to 2^32 - 1. Check this [discussion](https://github.com/Antalpha-Labs/zkp-co-learn/discussions/50)
 
 # LessThan
 Parameters: none
@@ -93,3 +94,7 @@ Specification: First, check that the dividend and divisor are at most nbits in b
 Extension: How would you modify the circuit to handle negative dividends?
 
 [Solution (ignore the second parameter SQRT_P; that is extraneous)](https://github.com/darkforest-eth/circuits/blob/master/perlin/perlin.circom#L44)
+
+Note: You might notice that if you input negative dividend to my `IntegerDivide` solution, the output is wrong. This issue is caused by the conversion between the input JSON to circom input, the -1 was converted to 2^32 - 1. All negative inputs will be converted wrongly. Check this [discussion](https://github.com/Antalpha-Labs/zkp-co-learn/discussions/50)
+
+Note: About if-else statement error, https://github.com/Antalpha-Labs/zkp-co-learn/discussions/54 
